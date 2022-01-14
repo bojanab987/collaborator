@@ -1,4 +1,4 @@
-import Calendar from '@components/Timesheet';
+import { lazy } from 'react';
 import styles from './Timesheet.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@reduxStore/reducers';
@@ -8,6 +8,8 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import AddNewTimesheet from '@components/modals/AddNewTimeSheet/AddNewTimesheet';
 import { useTranslation } from 'react-i18next';
 import { modalTypes } from '@reduxStore/actions/modalTypes';
+
+const Calendar = lazy(() => import('@components/Timesheet'));
 
 const month = new Date().toLocaleString('default', { month: 'long' });
 const year = new Date().getFullYear();

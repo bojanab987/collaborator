@@ -1,5 +1,7 @@
 'use strict';
 
+const BundleAnalyzerPlugin =
+    require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const fs = require('fs');
 const path = require('path');
 const webpack = require('webpack');
@@ -54,6 +56,8 @@ const disableESLintPlugin = process.env.DISABLE_ESLINT_PLUGIN === 'true';
 const imageInlineSizeLimit = parseInt(
     process.env.IMAGE_INLINE_SIZE_LIMIT || '10000'
 );
+
+const withReport = process.env.npm_config_withReport;
 
 // Check if TypeScript is setup
 const useTypeScript = fs.existsSync(paths.appTsConfig);
@@ -592,6 +596,7 @@ module.exports = function (webpackEnv) {
         },
         plugins: [
             // Generates an `index.html` file with the <script> injected.
+            withReport ? new BundleAnalyzerPlugin() : '',
             new HtmlWebpackPlugin(
                 Object.assign(
                     {},

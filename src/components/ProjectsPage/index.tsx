@@ -1,4 +1,4 @@
-import ProjectCard from '@components/ProjectCard';
+import { lazy } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import styles from './ProjectsPage.module.css';
@@ -7,6 +7,8 @@ import { useSearchParams } from 'react-router-dom';
 import { projectList } from './ProjectsPageData';
 import { useTranslation } from 'react-i18next';
 import { filterButtons } from '@constants/projects';
+
+const ProjectCard = lazy(() => import('@components/ProjectCard'));
 
 function ProjectsPage() {
     const [searchParams, setSearchParams] = useSearchParams({});
