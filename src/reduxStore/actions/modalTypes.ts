@@ -3,4 +3,5 @@ export enum modalTypes {
     addNewClient = 'addNewClient',
     addNewTimesheetItem = 'addNewTimesheetItem',
     addNewEmployee = 'addNewEmployee',
+    addNewTutorial = 'addNewTutorial',
 }

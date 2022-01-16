@@ -5,7 +5,6 @@ import {
     handleDeleteTutorial,
     initTutorials,
 } from '@utils/tutorials';
-import { ITutorialItem } from '@components/TutorialItem/types';
 
 const initialState = {
     tutorials: initTutorials,
@@ -13,21 +12,25 @@ const initialState = {
 
 const tutorialReducer = (
     state = initialState,
-    action: Action & { payload: { type: ITutorialItem } }
+    action: Action & { payload: any }
 ) => {
     switch (action.type) {
-        case actionTypes.ADD_TUTORIAL:
+        case actionTypes.ADD_TUTORIAL: {
+            const newTutorials = handleAddTutorial(state, action.payload);
             return {
                 ...state,
-                tutorials: handleAddTutorial(state, action.payload.type),
+                tutorials: [...newTutorials],
             };
-        case actionTypes.DELETE_TUTORIAL:
+        }
+        case actionTypes.DELETE_TUTORIAL: {
+            const newTutorials = handleDeleteTutorial(state, action.payload);
             return {
                 ...state,
-                tutorials: handleDeleteTutorial(state, action.payload.type.id),
+                tutorials: [...newTutorials],
             };
+        }
         default:
-            return initialState;
+            return state;
     }
 };
 

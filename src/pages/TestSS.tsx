@@ -1,5 +1,3 @@
-import Profile from '@components/Profile';
-import Employees from '@components/Employees';
 import AddClientModal from '@components/modals/AddNewClient';
 import { useDispatch, useSelector } from 'react-redux';
 import { modalTypes } from '@reduxStore/actions/modalTypes';

@@ -8,6 +8,7 @@ const initialState = {
         addNewTimesheetItem: false,
         addNewSkill: false,
         addNewEmployee: false,
+        addNewTutorial: false,
     },
 };
 

@@ -1,3 +1,11 @@
+.container {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 30px;
+}
 .plus-btn {
     background-color: var(--green-color);
     border: 1px solid var(--green-color);
@@ -14,4 +22,8 @@
     color: var(--text-primary-color);
     font-size: 32px;
     font-weight: 700;
+}
+.paragraph {
+    color: var(--text-primary-color);
+    padding: 10px;
 }
