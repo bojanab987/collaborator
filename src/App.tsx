@@ -2,6 +2,7 @@ import { lazy } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ErrorPage from '@pages/ErrorPage';
 import ErrorBoundary from '@components/ErrorBoundary';
+import ShowOff from '@pages/ShowOff';
 
 const About = lazy(() => import('@pages/About'));
 const Home = lazy(() => import('@pages/Home'));
@@ -119,6 +120,7 @@ function App() {
                             }
                         />
                         <Route path="/tutorials" element={<Tutorials />} />
+                        <Route path="/showoff" element={<ShowOff />} />
                         <Route path="*" element={<NotFoundPage />} />
                     </Route>
                 </Routes>
