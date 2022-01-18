@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import styles from './ShowOff.module.css';
 import { useInterval } from './useInterval';
+import { useInput } from './useInput';
 
 const ShowOff = () => {
     const [message, setMessage] = useState('');
@@ -8,6 +9,9 @@ const ShowOff = () => {
     const [count, setCount] = useState(0);
     const [question, setQuestion] = useState('');
     const [isBtnVisible, setBtnVisible] = useState(false);
+
+    const [firstName, isValidFirstName, handleChangeFirstName] = useInput();
+    const [lastName, isValidLastName, handleChangeLastName] = useInput();
 
     const printMessage = (msg: string) => {
         setMessage(msg);
@@ -67,6 +71,32 @@ const ShowOff = () => {
                 >
                     NO
                 </button>
+            </div>
+            <div className={styles.form}>
+                <div className={styles.input_wrapper}>
+                    <label>First Name:</label>
+                    <input
+                        className={styles.input_field}
+                        type="text"
+                        onChange={handleChangeFirstName}
+                        value={firstName}
+                    />
+                </div>
+                <div className={styles.input_wrapper}>
+                    <label>Last Name:</label>
+                    <input
+                        className={styles.input_field}
+                        type="text"
+                        onChange={handleChangeLastName}
+                        value={lastName}
+                    />
+                </div>
+                {(!isValidFirstName || !isValidLastName) && (
+                    <div className={styles.error}>
+                        Input cannot be empty or contain special characters:#,$,
+                        %
+                    </div>
+                )}
             </div>
         </div>
     );
