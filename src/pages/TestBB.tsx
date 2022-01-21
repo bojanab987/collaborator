@@ -1,3 +1,4 @@
+import Form from '@components/Form';
 import ProjectCard from '@components/ProjectCard';
 import { ProjectStatus } from '@components/ProjectCard/types';
 
@@ -13,6 +14,7 @@ function TestBB() {
                 startDate={'01-01-2021'}
                 endDate={'N/A'}
             />
+            <Form />
         </div>
     );
 }
