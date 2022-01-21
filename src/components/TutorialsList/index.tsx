@@ -9,7 +9,7 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import AddTutorialModal from '@components/modals/AddTutorialModal/AddTutorialModal';
 import { open } from '@reduxStore/actions/modal';
 
-const index = () => {
+const TutorialsList = () => {
     const dispatch = useDispatch();
     const tutorials = useSelector(
         (state: RootState) => state.tutorial.tutorials
@@ -44,4 +44,4 @@ const index = () => {
     );
 };
 
-export default index;
+export default TutorialsList;

@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ErrorPage from '@pages/ErrorPage';
 import ErrorBoundary from '@components/ErrorBoundary';
 import ShowOff from '@pages/ShowOff';
+import TutorialsUseReducer from '@pages/Tutorials/TutorialsUseReducer';
 
 const About = lazy(() => import('@pages/About'));
 const Home = lazy(() => import('@pages/Home'));
@@ -121,6 +122,10 @@ function App() {
                         />
                         <Route path="/tutorials" element={<Tutorials />} />
                         <Route path="/showoff" element={<ShowOff />} />
+                        <Route
+                            path="/useReducer"
+                            element={<TutorialsUseReducer />}
+                        />
                         <Route path="*" element={<NotFoundPage />} />
                     </Route>
                 </Routes>
